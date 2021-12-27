@@ -14,10 +14,8 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  Cleaner:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Configurer le JDK 11
@@ -25,7 +23,49 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Builder lr projet avec Gradle
+    - name: Builder le projet avec Gradle
       uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
       with:
-        arguments: build
+        arguments: clean
+
+    Construire:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Configurer le JDK 11
+          uses: actions/setup-java@v2
+          with:
+            java-version: '11'
+            distribution: 'adopt'
+        - name: Builder le projet avec Gradle
+          uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+          with:
+            arguments: build
+
+    Tester:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Configurer le JDK 11
+          uses: actions/setup-java@v2
+          with:
+            java-version: '11'
+            distribution: 'adopt'
+        - name: Builder le projet avec Gradle
+          uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+          with:
+            arguments: test
+
+    Clean-build-test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Configurer le JDK 11
+          uses: actions/setup-java@v2
+          with:
+            java-version: '11'
+            distribution: 'adopt'
+        - name: Builder le projet avec Gradle
+          uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
+          with:
+            arguments: clen build test
