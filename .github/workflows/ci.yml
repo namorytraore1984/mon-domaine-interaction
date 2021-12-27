@@ -31,7 +31,4 @@ jobs:
   Test de securite:
     runs-on: ubuntu-latest
       steps:
-
-  Deploiement:
-    runs-on: ubuntu-latest
-      steps:
+      -name: toto
