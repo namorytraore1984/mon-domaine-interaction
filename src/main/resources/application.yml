@@ -1,1 +1,4 @@
-
+app:
+  clients:
+    service-metier:
+      url: http://producer:8081/service/metier/mon-domaine/sante
