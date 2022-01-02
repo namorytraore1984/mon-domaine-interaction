@@ -2,3 +2,12 @@ app:
   clients:
     service-metier:
       url: http://producer:8081/service/metier/mon-domaine/sante
+
+spring:
+  application:
+    name: mon-domaine-interaction
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8085/eureka}
