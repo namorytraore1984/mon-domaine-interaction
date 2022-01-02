@@ -21,5 +21,4 @@ public class MonDomaineHealtyCtrl {
     public HealtyObject sanityCheck() {
         return healtySrv.getAllServicesHealtyMsg();
     }
-
 }
